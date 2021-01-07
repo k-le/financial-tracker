@@ -4,7 +4,7 @@ The project will focus on developing a financial budgeting web app that aims to
 help the user keep track of their money and their spending categories!
 Existing inspirations for this project would be YNAB or Intuit's mint.
 
-### This project is currently in development and is subject to being updated.
+<b>This project is currently in development and is subject to being updated.</b>
 
 ## Features 💡
 Ideally, there are certain features that we would like to implement into this project 
