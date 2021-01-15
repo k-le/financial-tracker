@@ -1,27 +1,99 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Kevin L.">
-    <meta name="description" content="pass">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="Kevin L." />
+    <meta
+      name="description"
+      content="Budgeter: A Financial Tracker Developed in Python with Django Web Framework."
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'budgeter/main.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
-    <title>Hello, world!</title>
+    <!-- Google Fonts -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+    </style>
+
+    <!-- Local CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'budgeter/main.css' %}"
+    />
+
+    <!-- Title -->
+    {% if title %}
+    <title>Budgeter - {{ title }}</title>
+    {% else %}
+    <title>Budgeter</title>
+    {% endif %}
   </head>
   <body>
-    {% block content %}
-    {% endblock content %}
+    <!-- NavBar -->
+    <nav class="header-nav" role="navigation">
+      <div class="nav-content">
+        <ul>
+          <li>
+            <a class="nav-content nav-link" href="{% url 'budgeter-home' %}"
+              >&#128184; Budgeter</a
+            >
+          </li>
+          <li>
+            <a class="nav-content nav-link" href="{% url 'budgeter-home' %}"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a class="nav-content nav-link" href="{% url 'budgeter-about' %}"
+              >About</a
+            >
+          </li>
+          <li>
+            <a class="nav-content nav-link" href="{% url 'budgeter-contact' %}"
+              >Contact</a
+            >
+          </li>
+          <li><a class="nav-content nav-link" href="#">Login</a></li>
+          <li><a class="nav-content nav-link" href="#">Register</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End NavBar -->
+
+    <main class="budgeter-main">
+      {% block content %} {% endblock content %}
+    </main>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
