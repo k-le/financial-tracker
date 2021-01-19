@@ -1,0 +1,16 @@
+{% extends "budgeter/base.html" %}
+{% block content %}
+    <div class="container-fluid">
+      <div class="border-bottom pt-3">
+        <h2>Budget List</h2>
+      </div>
+      <br />
+    {% for transaction_list in transaction_lists %}
+      <a class="btn btn-outline-info budget text-right mb-3"
+         href="{% url 'budgeter-dashboard' transaction_list.id %}"
+      >{{ transaction_list.name }}</a
+      >
+      <br />
+    {% endfor %}
+    </div>
+{% endblock content %}

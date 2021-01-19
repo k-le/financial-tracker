@@ -8,43 +8,54 @@
   box-sizing: border-box;
 }
 
-main {
+.budgeter-main {
   display: flex;
   justify-content: center;
   align-self: center;
+  padding-top: 15px;
 }
 
 /* || navbar layout */
 
-nav.header-nav {
-  display: block;
-  margin: 0 auto;
-  width: 100vw;
+.budgeter-nav {
   height: 56px;
   font-size: 1.25rem;
   background-color: rgb(153, 202, 149);
   color: white;
 }
 
-.nav-content {
-  margin: 0 auto;
-  max-width: 1024px;
-  padding: 0 22px;
-  position: relative;
-}
+/*.nav-content {*/
+/*  margin: 0 auto;*/
+/*  max-width: 1024px;*/
+/*  padding: 0 22px;*/
+/*  position: relative;*/
+/*}*/
 
-.nav-content ul {
-  margin: 0 10px;
-  width: auto;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  list-style: none;
-}
+/*.nav-content ul {*/
+/*  margin: 0 10px;*/
+/*  width: auto;*/
+/*  height: 52px;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: space-around;*/
+/*  list-style: none;*/
+/*}*/
 
-.nav-content .nav-link {
+.navbar-link {
   padding: 0 10px;
+  color: inherit;
+}
+
+.navbar-link:hover {
+  color: #dbffd1;
+  text-decoration: none;
+}
+
+.budgeter-logo {
+  color: inherit;
+}
+
+.budgeter-logo:hover {
   color: inherit;
 }
 
@@ -110,4 +121,48 @@ nav.header-nav {
     grid-column: unset !important;
     grid-row: unset !important;
   }
+}
+
+/* || register-page layout */
+
+/* || register-page sign-up button */
+
+.btn.btn-outline-info {
+  font-weight: 500;
+  color: rgb(131, 173, 127);
+  border-color: rgb(131, 173, 127);
+}
+
+.btn.btn-outline-info:hover {
+  background-color: rgb(131, 173, 127);
+  color: white;
+}
+
+/* || login-page layout */
+
+.login-page {
+  padding-top: 2.5%;
+}
+
+/* || dashboard-page layout */
+
+legend.new-transaction {
+  width: auto;
+  padding: 0 10px;
+}
+
+strong.transaction-table-header {
+  font-size: 1.25rem;
+}
+
+/* || budget-list-page layout */
+
+.btn.btn-outline-info.budget {
+  color: #61aeb2;
+  border-color: #61aeb2;
+}
+
+.btn.btn-outline-info.budget:hover {
+  color: white;
+  background-color: #61aeb2;
 }

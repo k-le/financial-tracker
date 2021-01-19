@@ -1,0 +1,23 @@
+{% extends "budgeter/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+  <div class="login-page">
+    <form action="" method="post">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom pt-3 mb-4">Sign In</legend>
+        {{ form|crispy }}
+      </fieldset>
+      <div class="form-group">
+        <button class="btn btn-outline-info" type="submit">Sign In</button>
+      </div>
+    </form>
+    <div class="border-top pt-3">
+      <small class="text-muted"
+        >Don't have an account yet? <a href="{% url 'register-page' %}" class="ml-2">Get started now!</a></small
+      >
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "budgeter/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+  <form method="post" action="/create/" class="form-group">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom pt-3 mb-4">Create a New Budget</legend>
+      {{ form|crispy }}
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-outline-info" type="submit">Create Budget</button>
+    </div>
+  </form>
+</div>
+{% endblock content %}
