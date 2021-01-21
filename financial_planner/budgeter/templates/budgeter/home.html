@@ -1,52 +1,53 @@
 {% extends "budgeter/base.html" %}
 {% load static %}
 {% block content %}
+    <h1 class="fade-in mt-3">Welcome to Budgeter.</h1>
     <div class="home-layout">
-      <div class="box">
+      <div class="box fade-in">
         <div class="content">
           <img src="/media/home-page/money1.jpg" alt="" />
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus sit
-            repellat veritatis dolores non sapiente ipsam natus tempore nulla magni.
+            Around <span class="emphasize-text">25%</span> of all American families have no savings at all, while around <span class="emphasize-text">40%</span> of all working Americans are not saving any money for retirement.
+            <br />
+            <br />
+            <strong>Budgeter</strong> can help you begin saving money and plan for your retirement.
           </p>
         </div>
       </div>
-      <div class="box">
+      <div class="box fade-in">
         <div class="content">
           <img src="/media/home-page/money2.jpg" alt="" />
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-            autem, eaque porro impedit ipsum suscipit eum veritatis tenetur libero.
-            Dolor unde quia mollitia ad quis aut veritatis delectus totam? Eveniet.
+            Keep track of all of your transactions: ingoing and outgoing.
+            <br />
+            <br />
+              Being able to see where your money is <strong>going</strong> will provide you with insight on your <span class="emphasize-text">spending habits</span>.
           </p>
         </div>
       </div>
-      <div class="box">
+      <div class="box fade-in">
+        <div class="content">
+          <img src="/media/home-page/mental-money.webp" alt="" />
+          <p>
+            Money and mental health are connected <strong>very closely</strong>.
+            <br />
+            Saving and budgeting your money will result in less financial worry and leave you in a <span class="emphasize-text">healthier</span> mental state.
+          </p>
+        </div>
+      </div>
+      <div class="box fade-in">
         <div class="content">
           <img src="/media/home-page/money3.webp" alt="" />
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, vitae!
+              Saving money allows you to <span class="emphasize-text">comfortably</span> make bigger purchases down the line.
           </p>
         </div>
       </div>
-      <div class="box">
-        <div class="content">
-          <img src="/media/home-page/money2.jpg" alt="" />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ipsum iste
-            doloremque maxime laboriosam! Quis unde labore qui aliquam quia expedita
-            quas illo ab asperiores.
-          </p>
+      <a href="{% url 'register-page' %}" class="box home-link fade-in">
+        <div class="">
+           Start Saving Today
         </div>
-      </div>
-      <div class="box">
-        <div class="content">
-          <img src="/media/home-page/money1.jpg" alt="" />
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis
-            quibusdam quidem praesentium molestias, libero aperiam vero neque est?
-          </p>
-        </div>
-      </div>
+      </a>
+
     </div>
 {% endblock content %}

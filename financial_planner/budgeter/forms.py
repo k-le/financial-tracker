@@ -4,6 +4,9 @@ from .models import Transaction, TransactionList
 
 
 class CreateNewList(forms.ModelForm):
+    """Form for the User to create a new TransactionList.
+    """
+
     class Meta:
         model = TransactionList
         fields = ('name',
@@ -17,6 +20,10 @@ class CreateNewList(forms.ModelForm):
 
 
 class CreateNewTransaction(forms.ModelForm):
+    """Form for the User to create a new Transaction.
+    Features a Date-picker for the date_posted field.
+    """
+
     class Meta:
         model = Transaction
         fields = ('date_posted',

@@ -8,6 +8,14 @@ from .forms import CreateNewList, CreateNewTransaction
 
 
 def home(request):
+    """If the User is already logged in, then Home-view will
+    redirect the user to either:
+        their dashboard if they have already created a budget.
+        the Budgeter-create page to create their first budget.
+
+    Otherwise, the Home-view will render the home.html template.
+    """
+
     if request.user.is_authenticated:
         t_list = request.user.transactionlist.first()
         if t_list:
@@ -19,6 +27,21 @@ def home(request):
 
 
 def create(request):
+    """Requires the User to be logged-in to access Create-view.
+    Renders a form for the User to create a new budget and saves
+    their starting balance as the initial transaction in the new
+    budget.
+
+    If the User is not logged-in, then the view renders a custom 404
+    Error page.
+
+    Variables passed through to the template:
+        title: :class:`String`
+            Title of the view.
+        form: :class:`form`
+            Rendered TransactionList form for the User.
+    """
+
     if request.user.is_authenticated:
         if request.method == 'POST':
             form = CreateNewList(request.POST)
@@ -47,12 +70,40 @@ def create(request):
         else:
             form = CreateNewList()
 
-        return render(request, "budgeter/create.html", {"form": form})
+        return render(request, "budgeter/create.html", {"form": form, "title": "Create a New Budget"})
 
     return render(request, "budgeter/error.html", {'title': '404 Error'})
 
 
 def dashboard(request, id):
+    """Dashboard-view renders the dashboard template with
+    the User's chosen TransactionList. The view renders a form
+    for the User to enter and save new Transactions into their
+    TransactionList.
+
+    If the User is not logged-in, then the view renders a custom 404
+    Error page.
+
+    Variables passed through to the template:
+        title: :class:`String`
+            Title of the view.
+        form: :class:`form`
+            Rendered Transaction form for the User.
+        transactions: :class:`Model Transaction`
+            Transactions of the TransactionList to be rendered in
+            the template.
+        t_list: :class:`Model TransactionList`
+            TransactionList that contains Transactions to be rendered
+            in the template.
+        ingoing_sum: :class:`Float`
+            Sum of all the ingoing values across every Transaction.
+        outgoing_sum: :class:`Float`
+            Sum of all the outgoing values across every Transaction.
+        total_bal: :class:`Float`
+            The current, total balance by subtracting the ingoing_sum
+            and the out_going sum.
+    """
+
     t_list = TransactionList.objects.get(id=id)
 
     if t_list in request.user.transactionlist.all():
@@ -79,6 +130,7 @@ def dashboard(request, id):
         else:
             form = CreateNewTransaction()
 
+        # Aggregate values from Transactions
         ingoing_sum: float = t_list.transaction.all().aggregate(in_sum=Sum('ingoing'))['in_sum']
         outgoing_sum: float = t_list.transaction.all().aggregate(out_sum=Sum('outgoing'))['out_sum']
         total_bal: float = ingoing_sum - outgoing_sum
@@ -98,6 +150,13 @@ def dashboard(request, id):
 
 
 class TransactionListListView(LoginRequiredMixin, ListView):
+    """ListView for all of the TransactionLists. Allows the User
+    to see all of their created budgets so that they may pick
+    which one to edit.
+
+    Currently a work in progress.
+    """
+
     model = TransactionList
     template_name = 'budgeter/budget_list.html'
     context_object_name = 'transaction_lists'
@@ -105,6 +164,10 @@ class TransactionListListView(LoginRequiredMixin, ListView):
 
 
 class TransactionDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """DeleteView for all the Transactions. Allows the User
+    to delete Transactions from their TransactionLists.
+    """
+
     model = Transaction
     success_url = '/'
 

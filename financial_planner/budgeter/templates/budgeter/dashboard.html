@@ -13,7 +13,7 @@
     <meta name="author" content="Kevin L." />
     <meta
       name="description"
-      content="Budgeter: A Financial Tracker Developed in Python with Django Web Framework."
+      content="Budgeter: A Financial Tracker Developed in Python with Django Web Framework and Bootstrap4."
     />
 
     <!-- Bootstrap CSS -->
@@ -23,9 +23,15 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+
+    <!-- jQuery CSS -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- JavaScript -->
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Date-picker -->
     <script>
     $( function() {
       $( ".datepicker" ).datepicker();
@@ -44,29 +50,13 @@
       href="{% static 'budgeter/main.css' %}"
     />
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-
-
     <!-- Title -->
     {% if title %}
     <title>Budgeter - {{ title }}</title>
     {% else %}
     <title>Budgeter</title>
     {% endif %}
+
   </head>
   <body>
 
@@ -106,9 +96,11 @@
 
       <br />
 
+      <!-- Title of Budget -->
       <div class="container-fluid mt-3">
         <h1>{{ t_list.name }}</h1>
       </div>
+      <!-- Title of Budget -->
 
       <!-- New-transaction Form -->
       <form method="post" action="#">
@@ -167,12 +159,15 @@
               <td style="width: 10%">${{ transaction.ingoing }}</td>
               <td style="width: 10%">${{ transaction.outgoing }}</td>
               <td style="width: 1%" class="text-right">
+                <!-- Delete Button -->
                 <a class="btn btn-outline-danger btn-sm text-right" href="{% url 'transaction-delete' transaction.id %}">
+                  <!-- Trash Icon for Delete Button -->
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                     <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                   </svg>
                 </a>
+                <!-- End Delete Button -->
               </td>
             </tr>
           {% endfor %}
@@ -183,6 +178,11 @@
 
     </main>
     <!-- End Main -->
+
+    <!-- Footer -->
+    <footer>
+      Copyright &copy; 2021 Kevin L. All rights reserved.
+    </footer>
 
   </body>
 </html>

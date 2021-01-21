@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User
 from django.db import models
-from django.urls import reverse
 from django.utils import timezone, dateformat
 
 
@@ -17,7 +16,7 @@ class TransactionList(models.Model):
     name: :class:`CharField`
         Name of the TransactionList.
     starting_balance: :class:`DecimalField`
-        The starting balance (first transaction) of the transaction
+        The starting balance (initial transaction) of the transaction
         list. This value is set by the User.
     """
 
@@ -39,11 +38,11 @@ class Transaction(models.Model):
     Attributes
     ----------
     t_list: :class:`ForeignKey`
-        Each Transaction is saved to a TransactionList.
+        Every Transaction belongs to a TransactionList.
         Every TransactionList is unique to a User. This
         allows for Users to have multiple TransactionLists,
         each with different Transactions.
-    date_posted: :class:`DateTimeField`
+    date_posted: :class:`DateField`
         When the Transaction was made by the User. The
         default is the current date, but may be set
         by the User.
@@ -56,12 +55,10 @@ class Transaction(models.Model):
     ingoing: :class:`DecimalField`
         The ingoing dollar value of the Transaction. Set to
         two decimal places for currency format.
-    outdoing: :class:`DecimalField`
+    outgoing: :class:`DecimalField`
         The outgoing dollar value of the Transaction. Set
         to two decimal places for the currency format.
     """
-
-
 
     t_list = models.ForeignKey(TransactionList,
                                on_delete=models.CASCADE,
@@ -80,6 +77,3 @@ class Transaction(models.Model):
                f"Payee: {self.payee}\n" \
                f"Ingoing: ${self.ingoing}\n" \
                f"Outgoing: ${self.outgoing}"
-
-    def get_absolute_url(self):
-        return reverse('transaction-detail', kwargs={'pk': self.pk})

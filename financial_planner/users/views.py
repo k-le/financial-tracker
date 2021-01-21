@@ -3,6 +3,10 @@ from django.contrib import messages
 from .forms import UserRegistrationForm
 
 def register(request):
+    """Register-page for the User. Renders a basic Django registration
+    form with Email for the User. Redirects the User to the login-page.
+    """
+
     if request.method == 'POST':
         '''Once the submit button has been hit, a POST HTTP request
         is sent.
@@ -16,11 +20,10 @@ def register(request):
             '''
 
             form.save()
-            username = form.cleaned_data.get('username')
             messages.success(request, 'Thanks for signing up! '
-                                      'You should receive a verification email within the next 30 minutes.')
+                                      'You should now be able to login.')
 
-            return redirect('budgeter-home')
+            return redirect('login-page')
     else:
         form = UserRegistrationForm()
 
