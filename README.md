@@ -28,7 +28,13 @@ The list of features are only suggestions and are also tentative to change.
 Django is a Python-based free and open-source web framework that follows the 
 model-template-views architectural pattern. It's a high-level Python web framework 
 that enables rapid development of secure and maintainable websites. Django has a 
-steeper learning curve than Flask (see below), but is full-stack compared to Flask.
+steeper learning curve than Flask (another web framework), but is full-stack compared to Flask.
+
+### Web Application Deployment
+[Heroku](https://www.heroku.com/)
+
+Heroku is a cloud platform that allows Users to host web applications for free. It supports
+various programming languages and web frameworks, such as Python and Django.
 
 ### Visualizing Data
 [Matplotlib](https://matplotlib.org/)
