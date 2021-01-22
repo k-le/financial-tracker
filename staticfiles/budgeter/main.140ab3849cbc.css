@@ -1,0 +1,268 @@
+/* || general styling */
+
+* {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.budgeter-main {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding-top: 15px;
+}
+
+/* || navbar layout */
+
+.budgeter-nav {
+  height: 56px;
+  font-size: 1.25rem;
+  background-color: rgb(153, 202, 149);
+  color: white;
+}
+
+.navbar-link {
+  padding: 0 10px;
+  color: inherit;
+}
+
+.navbar-link:hover {
+  color: #dbffd1;
+  text-decoration: none;
+}
+
+.budgeter-logo {
+  color: inherit;
+}
+
+.budgeter-logo:hover {
+  color: inherit;
+}
+
+/* || home-page layout */
+
+/* || home title with fade-in keyframes */
+
+h1.fade-in {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* || home grid layout */
+
+.home-layout {
+  position: absolute;
+  top: 15%;
+  max-width: 80%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: minmax(100px, auto);
+  margin: 40px;
+  grid-auto-flow: dense;
+  grid-gap: 2rem;
+}
+
+.home-layout .box {
+  background: linear-gradient(
+          to right bottom,
+          rgba(173, 216, 230, 0.7),
+          rgba(173, 216, 230, 0.3)
+  );
+  color: rgb(179, 179, 179);
+  padding: 20px;
+  display: grid;
+  font-size: 1.1rem;
+  border-radius: 16px 48px;
+  place-items: center;
+  text-align: center;
+  transition: 500ms;
+}
+
+.home-layout .box:hover {
+    background: linear-gradient(
+          to right bottom,
+          rgba(173, 216, 230, 0.9),
+          rgba(173, 216, 230, 0.45)
+  );
+  color: rgba(0, 0, 0, 0.6);
+  transform: scale(1.15);
+  z-index: 5;
+}
+
+.home-layout .box:hover .emphasize-text {
+  transition: 500ms;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #598e58;
+}
+
+.home-layout img {
+  position: relative;
+  max-width: 150px;
+  margin-bottom: 15px;
+}
+
+/* || home grid items styling */
+
+.home-layout .box:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.home-layout .box:nth-child(3) {
+  grid-column: span 1;
+  grid-row: span 2;
+  border-radius: 16px 48px;
+}
+
+.home-layout .box:nth-child(5) {
+  grid-column: 1 / span 4;
+  grid-row: span 1;
+  text-decoration: none;
+  font-size: 3rem;
+}
+
+/* || home grid items fade-in */
+
+.home-layout .box.fade-in {
+  opacity: 1;
+  animation-name: fadeInOpacity-box;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 3s;
+}
+
+@keyframes fadeInOpacity-box {
+  0% {
+    opacity: 0;
+  }
+  67% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* || home grid responsive */
+
+@media (min-width: 2865px) {
+  .home-layout .box:nth-child(3) {
+    grid-column: span 2;
+    grid-row: 2 / span 1;
+  }
+
+  .home-layout .box:nth-child(4) {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  .home-layout .box:nth-child(5) {
+    grid-column: 1 / span 5;
+  }
+}
+
+@media (min-width: 2035px) {
+  .home-layout .box:nth-child(2) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .home-layout .box:nth-child(4) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .home-layout .box:nth-child(5) {
+    grid-column: 1 / span 5;
+  }
+}
+
+@media (max-width: 1608px) {
+  .home-layout {
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+    grid-template-rows: minmax(auto, auto);
+  }
+}
+
+@media (max-width: 1200px) {
+  .home-layout {
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+    grid-template-rows: minmax(auto, auto);
+  }
+
+  .home-layout .box {
+    grid-column: unset !important;
+    grid-row: unset !important;
+  }
+}
+
+/* || register-page layout */
+
+/* || register-page sign-up button */
+
+.btn.btn-outline-info {
+  font-weight: 500;
+  color: rgb(131, 173, 127);
+  border-color: rgb(131, 173, 127);
+}
+
+.btn.btn-outline-info:hover {
+  background-color: rgb(131, 173, 127);
+  color: white;
+}
+
+/* || login-page layout */
+
+.login-page {
+  position: absolute;
+  top: 25%;
+}
+
+/* || dashboard-page layout */
+
+legend.new-transaction {
+  width: auto;
+  padding: 0 10px;
+}
+
+strong.transaction-table-header {
+  font-size: 1.25rem;
+}
+
+/* || budget-list-page layout */
+
+.btn.btn-outline-info.budget {
+  color: #61aeb2;
+  border-color: #61aeb2;
+}
+
+.btn.btn-outline-info.budget:hover {
+  color: white;
+  background-color: #61aeb2;
+}
+
+footer {
+  position: fixed;
+  bottom: 1%;
+  width: 100%;
+  text-align: center;
+}
