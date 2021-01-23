@@ -1,4 +1,4 @@
-# Budgeter - A Financial Planner
+# [Budgeter - A Financial Planner](https://k-le-budgeter.herokuapp.com/)
 ## Introduction 👋🏼
 The project will focus on developing a financial budgeting web app that aims to 
 help the user keep track of their money and their spending categories!
