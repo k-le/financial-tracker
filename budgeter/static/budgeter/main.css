@@ -103,7 +103,7 @@ h1.fade-in {
           rgba(173, 216, 230, 0.45)
   );
   color: rgba(0, 0, 0, 0.6);
-  transform: scale(1.15);
+  transform: scale(1.075);
   z-index: 5;
 }
 

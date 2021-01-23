@@ -68,8 +68,8 @@ class Transaction(models.Model):
                                    default=dateformat.format(timezone.now(), 'm/d/y'))
     payee = models.CharField(max_length=100)
     memo = models.CharField(blank=True, max_length=300)
-    ingoing = models.DecimalField(default=0.00, max_digits=7, decimal_places=2)
-    outgoing = models.DecimalField(default=0.00, max_digits=7, decimal_places=2)
+    ingoing = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
+    outgoing = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
 
     def __str__(self):
         return f"User: {self.t_list.user}\n" \
