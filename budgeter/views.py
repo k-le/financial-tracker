@@ -130,19 +130,21 @@ def dashboard(request, id):
         else:
             form = CreateNewTransaction()
 
-        # Aggregate values from Transactions
-        ingoing_sum: float = t_list.transaction.all().aggregate(in_sum=Sum('ingoing'))['in_sum']
-        outgoing_sum: float = t_list.transaction.all().aggregate(out_sum=Sum('outgoing'))['out_sum']
-        total_bal: float = ingoing_sum - outgoing_sum
-
         context = {'title': 'My Dashboard',
                    'form': form,
                    'transactions': t_list.transaction.all().order_by('-date_posted'),
-                   't_list': t_list,
-                   'ingoing_sum': ingoing_sum,
-                   'outgoing_sum': outgoing_sum,
-                   'total_bal': total_bal
+                   't_list': t_list
                    }
+
+        # Aggregate values from Transactions
+        if t_list.transaction.exists():
+            ingoing_sum: float = t_list.transaction.all().aggregate(in_sum=Sum('ingoing'))['in_sum']
+            outgoing_sum: float = t_list.transaction.all().aggregate(out_sum=Sum('outgoing'))['out_sum']
+            total_bal: float = ingoing_sum - outgoing_sum
+
+            context['ingoing_sum'] = ingoing_sum
+            context['outgoing_sum'] = outgoing_sum
+            context['total_bal'] = total_bal
 
         return render(request, 'budgeter/dashboard.html', context)
 
