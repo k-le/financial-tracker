@@ -248,6 +248,16 @@ strong.transaction-table-header {
   font-size: 1.25rem;
 }
 
+.positive {
+  font-weight: 600;
+  color: #519d51;
+}
+
+.negative {
+  font-weight: 600;
+  color: #ac3c3c;
+}
+
 /* || budget-list-page layout */
 
 .btn.btn-outline-info.budget {

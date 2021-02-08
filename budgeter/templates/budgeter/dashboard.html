@@ -125,7 +125,11 @@
           <thead class="thead-light">
             <tr>
               <th scope="col" colspan="3" class="text-left">
-                  <strong class="transaction-table-header">Current Balance: ${{ total_bal|floatformat:2 }}</strong>
+                  {% if total_bal >= 0 %}
+                      <strong class="transaction-table-header">Current Balance: <span class="positive">${{ total_bal|floatformat:2 }}</span></strong>
+                  {% else %}
+                      <strong class="transaction-table-header">Current Balance: <span class="negative">${{ total_bal|floatformat:2 }}</span></strong>
+                  {% endif %}
               </th>
               <th scope="col">
                   <strong class="transaction-table-header">In-going:</strong>
