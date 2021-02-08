@@ -28,7 +28,8 @@ class TransactionList(models.Model):
     starting_balance = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
 
     def __str__(self):
-        return self.name
+        return f"User: {self.user}\n" \
+               f"Name: {self.name}"
 
 
 class Transaction(models.Model):

@@ -164,6 +164,9 @@ class TransactionListListView(LoginRequiredMixin, ListView):
     context_object_name = 'transaction_lists'
     ordering = ['name']
 
+    def get_queryset(self):
+        return TransactionList.objects.filter(user=self.request.user)
+
 
 class TransactionDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """DeleteView for all the Transactions. Allows the User
